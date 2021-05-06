@@ -1,6 +1,8 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
+local_backend: true
+publish_mode: editorial_workflow
 # This line should *not* be indented
 media_folder: "assets/uploads" # Media files will be stored in the repo under images/uploads
 public_folder: "/uploads" # The src attribute for uploaded media will begin with /images/uploads
@@ -12,6 +14,7 @@ collections:
     preview_path: "{{slug}}"
     folder: "content/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
+    format: 'frontmatter'
     slug: "{{slug}}" # Filename template, e.g., title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
@@ -19,6 +22,7 @@ collections:
       - {label: "Category", name: "category", widget: "relation", collection: "categories", searchFields: ["name"], valueField: "name", multiple: true}
       - {label: "Author", name: "author", widget: "string", default: "Daniel Kelly"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Scheduled Publish Date", name: "publish_date", widget: "datetime"}
       - {label: "Featured Image", name: "featureImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "categories"

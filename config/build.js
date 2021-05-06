@@ -10,6 +10,11 @@ const build = {
     config.resolve.alias.vue = 'vue/dist/vue.common'
   }
 }
+build.babel = {
+  plugins: [
+    ['@babel/plugin-proposal-private-methods', { loose: true }]
+  ]
+}
 if (process.env.NODE_ENV === 'production') {
   // build.analyze = true
   build.postcss = {
