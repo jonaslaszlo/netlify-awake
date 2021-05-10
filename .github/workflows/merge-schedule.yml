@@ -6,12 +6,17 @@ on:
       - edited
   schedule:
     # https://crontab.guru/every-hour
-    - cron: 0 * * * *
+    # - cron: 0 * * * *
+    # https://crontab.guru/every-2-minutes
+    - cron: */2 * * * *
 
 jobs:
   merge_schedule:
     runs-on: ubuntu-latest
     steps:
       - uses: gr2m/merge-schedule-action@v1
+        with:
+          #  Time zone to use. Default is UTC.
+          time_zone: "Europe/Budapest"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
