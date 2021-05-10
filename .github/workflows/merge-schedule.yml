@@ -8,7 +8,7 @@ on:
     # https://crontab.guru/every-hour
     # - cron: 0 * * * *
     # https://crontab.guru/every-2-minutes
-    - cron: */2 * * * *
+    - cron: '*/2 * * * *'
 
 jobs:
   merge_schedule:
